@@ -5,9 +5,20 @@
   <title>Tailwind</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/Tailwind_CSS_Logo.png">
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
 </head>
-<body>
+<body class="dark:bg-gray-900 bg-white">
   <app-root></app-root>
+  <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+
+  <script>
+    // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+    if (localStorage.getItem('color-theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </body>
 </html>
