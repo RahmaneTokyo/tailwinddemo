@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   // Switch theme to Dark or Light
   themeSwitcher() {
-    // Check the localstorage
+    // Check the if color-theme attribute is created in localstorage
     if (localStorage.getItem('color-theme')) {
       if (localStorage.getItem('color-theme') === 'light' || localStorage.getItem('color-theme') === null) {
         document.documentElement.classList.add('dark');
@@ -28,6 +28,15 @@ export class HomeComponent implements OnInit {
       } else {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('color-theme', 'light');
+      }
+      this.isDark = !this.isDark;
+    } else { // color-theme key is not created in localstorage
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
       }
       this.isDark = !this.isDark;
     }
